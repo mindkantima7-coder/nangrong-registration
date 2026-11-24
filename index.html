@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ลงทะเบียนเรียน | วิทยาลัยเทคนิคนางรอง</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">NR</span><span>วิทยาลัยเทคนิคนางรอง<small>ระบบลงทะเบียนเรียนออนไลน์</small></span></a><nav><a class="active" href="index.html">ลงทะเบียน</a><a href="students.html">รายชื่อผู้ลงทะเบียน</a><a href="admin-login.html">สำหรับผู้ดูแล</a></nav></header>
+<main class="container">
+  <section class="hero"><div><span class="eyebrow">ONLINE REGISTRATION</span><h1>ลงทะเบียนเรียนออนไลน์</h1><p>กรุณากรอกข้อมูลให้ครบถ้วนและตรวจสอบความถูกต้องก่อนกดส่งข้อมูล</p></div><div class="hero-icon">🎓</div></section>
+  <section class="panel">
+    <div class="section-heading"><div><h2>แบบฟอร์มลงทะเบียน</h2><p>ข้อมูลผู้สมัครเรียน</p></div><span class="required-note">* จำเป็นต้องกรอก</span></div>
+    <form id="registration-form" class="form-grid">
+      <label>รหัสนักเรียน / รหัสผู้สมัคร <b>*</b><input name="student_code" required maxlength="30" placeholder="เช่น 69010001"></label>
+      <label>ชื่อ-นามสกุล <b>*</b><input name="full_name" required maxlength="150" placeholder="กรอกชื่อและนามสกุล"></label>
+      <label>เลขบัตรประชาชน <b>*</b><input name="citizen_id" required inputmode="numeric" minlength="13" maxlength="13" pattern="[0-9]{13}" placeholder="เลข 13 หลัก"></label>
+      <label>วันเดือนปีเกิด <b>*</b><input name="dob" type="date" required></label>
+      <label>เบอร์โทรศัพท์ <b>*</b><input name="phone" required inputmode="tel" maxlength="20" placeholder="08xxxxxxxx"></label>
+      <label>ระดับการศึกษา <b>*</b><select name="level" required><option value="">เลือกระดับการศึกษา</option><option>ปวช.</option><option>ปวส.</option><option>อื่น ๆ</option></select></label>
+      <label>แผนกวิชา <b>*</b><input name="department" required maxlength="100" placeholder="เช่น ช่างยนต์"></label>
+      <label>สาขาวิชา <b>*</b><input name="major" required maxlength="100" placeholder="ระบุสาขาวิชา"></label>
+      <label>ปีการศึกษา <b>*</b><input name="academic_year" required maxlength="10" placeholder="เช่น 2569"></label>
+      <label class="full">ที่อยู่ปัจจุบัน <b>*</b><textarea name="address" required rows="3" maxlength="500" placeholder="บ้านเลขที่ หมู่ ถนน ตำบล อำเภอ จังหวัด"></textarea></label>
+      <div class="full consent"><input type="checkbox" id="consent" required><label for="consent">ข้าพเจ้าตรวจสอบข้อมูลแล้วและยินยอมให้วิทยาลัยใช้ข้อมูลเพื่อดำเนินการรับสมัครและลงทะเบียนเรียน</label></div>
+      <div class="full form-actions"><button class="btn primary" type="submit">ส่งข้อมูลลงทะเบียน</button><button class="btn light" type="reset">ล้างข้อมูล</button></div>
+      <p id="registration-message" class="message full" role="status"></p>
+    </form>
+  </section>
+  <p class="privacy-note">โปรดเก็บข้อมูลส่วนตัวของท่านเป็นความลับ และอย่าใช้เครื่องสาธารณะในการกรอกข้อมูลสำคัญ</p>
+</main>
+<footer>© วิทยาลัยเทคนิคนางรอง | ระบบลงทะเบียนเรียนออนไลน์</footer>
+</body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>จัดการข้อมูลนักเรียน | วิทยาลัยเทคนิคนางรอง</title><link rel="stylesheet" href="styles.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script defer src="app.js"></script></head>
+<body><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">NR</span><span>วิทยาลัยเทคนิคนางรอง<small>ระบบจัดการผู้ดูแล</small></span></a><nav><a href="index.html">หน้าลงทะเบียน</a><a href="students.html">รายชื่อผู้ลงทะเบียน</a><button id="logout-btn" class="btn small light">ออกจากระบบ</button></nav></header>
+<main class="container"><section class="hero admin-hero"><div><span class="eyebrow">ADMIN DASHBOARD</span><h1>จัดการข้อมูลผู้ลงทะเบียน</h1><p id="admin-email">กำลังตรวจสอบสิทธิ์...</p></div><div class="hero-icon">🛠️</div></section>
+<div class="stats"><article class="stat-card"><span>ผู้ลงทะเบียนทั้งหมด</span><strong id="total-count">—</strong></article><article class="stat-card"><span>ระดับ ปวช.</span><strong id="voc-count">—</strong></article><article class="stat-card"><span>ระดับ ปวส.</span><strong id="high-count">—</strong></article></div>
+<section class="panel"><div class="toolbar"><div><h2>ข้อมูลนักเรียน</h2><p class="muted">ดู แก้ไข และลบข้อมูลผู้ลงทะเบียน</p></div><input id="admin-search" class="search" type="search" placeholder="ค้นหาข้อมูล..."></div>
+<div class="table-wrap"><table><thead><tr><th>รหัส</th><th>ชื่อ-นามสกุล</th><th>เบอร์โทร</th><th>ระดับ</th><th>แผนก / สาขา</th><th>จัดการ</th></tr></thead><tbody id="admin-list"><tr><td colspan="6" class="empty">กำลังโหลด...</td></tr></tbody></table></div><p id="admin-message" class="message"></p></section>
+<section class="panel" id="edit-panel"><div class="section-heading"><div><h2 id="edit-title">เพิ่มข้อมูลนักเรียน</h2><p class="muted">กรอกข้อมูลเพื่อเพิ่มหรือแก้ไขรายการ</p></div></div>
+<form id="admin-form" class="form-grid">
+<input type="hidden" name="id">
+<label>รหัสผู้สมัคร<input name="student_code" required maxlength="30"></label><label>ชื่อ-นามสกุล<input name="full_name" required maxlength="150"></label>
+<label>เลขบัตรประชาชน<input name="citizen_id" required minlength="13" maxlength="13" pattern="[0-9]{13}"></label><label>วันเดือนปีเกิด<input name="dob" type="date" required></label>
+<label>เบอร์โทรศัพท์<input name="phone" required maxlength="20"></label><label>ระดับการศึกษา<select name="level" required><option value="">เลือกระดับ</option><option>ปวช.</option><option>ปวส.</option><option>อื่น ๆ</option></select></label>
+<label>แผนกวิชา<input name="department" required maxlength="100"></label><label>สาขาวิชา<input name="major" required maxlength="100"></label>
+<label>ปีการศึกษา<input name="academic_year" required maxlength="10"></label><label class="full">ที่อยู่<textarea name="address" rows="2" required maxlength="500"></textarea></label>
+<div class="full form-actions"><button class="btn primary" type="submit">บันทึกข้อมูล</button><button class="btn light" type="reset" id="cancel-edit">ล้างแบบฟอร์ม</button></div><p id="form-message" class="message full"></p></form></section>
+</main><footer>© วิทยาลัยเทคนิคนางรอง | หน้าสำหรับผู้ดูแลระบบ</footer></body></html>
